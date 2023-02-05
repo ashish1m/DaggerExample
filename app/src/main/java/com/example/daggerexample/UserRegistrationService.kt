@@ -3,13 +3,13 @@ package com.example.daggerexample
 import javax.inject.Inject
 
 class UserRegistrationService @Inject constructor(
-    private val emailService: EmailService,
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val notificationService: NotificationService
 ) {
 
     fun registerUser(email: String, password: String) {
         userRepository.saveUser(email, password)
-        emailService.sendEmail(email, "test@example.com", "User registered")
+        notificationService.send(email, "test@example.com", "User registered")
     }
 }
 
