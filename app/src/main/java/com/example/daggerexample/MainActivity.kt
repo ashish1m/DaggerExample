@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = DaggerUserRegistrationComponent.factory().create(3)
+        val component = DaggerApp.mInstance.userRegistrationComponent
 
         component.inject(this)
 
