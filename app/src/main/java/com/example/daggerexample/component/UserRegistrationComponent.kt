@@ -5,19 +5,20 @@ import com.example.daggerexample.module.UserRepositoryModule
 import com.example.daggerexample.scope.ActivityScope
 import com.example.daggerexample.ui.MainActivity
 import dagger.BindsInstance
-import dagger.Subcomponent
+import dagger.Component
 
 @ActivityScope
-@Subcomponent(
+@Component(
+    dependencies = [AppComponent::class],
     modules = [UserRepositoryModule::class, NotificationServiceModule::class]
 )
 interface UserRegistrationComponent {
-
     fun inject(mainActivity: MainActivity)
 
-    @Subcomponent.Builder
+    @Component.Builder
     interface Builder {
         fun build(): UserRegistrationComponent
         fun retryCount(@BindsInstance retryCount: Int): Builder
+        fun appComponent(appComponent: AppComponent): Builder
     }
 }
