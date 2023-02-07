@@ -9,5 +9,6 @@ import javax.inject.Singleton
 @Component(modules = [AnalyticsServiceModule::class])
 interface AppComponent {
 
-    fun getAnalyticsService(): AnalyticsService
+    //If Factory is defined return Factory else return the Component only.
+    fun getUserRegistrationComponentFactory(): UserRegistrationComponent.Factory
 }

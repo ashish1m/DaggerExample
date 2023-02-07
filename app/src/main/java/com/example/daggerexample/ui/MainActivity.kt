@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.daggerexample.DaggerApp
 import com.example.daggerexample.R
-import com.example.daggerexample.component.DaggerUserRegistrationComponent
 import com.example.daggerexample.services.EmailService
 import com.example.daggerexample.services.UserRegistrationService
 import javax.inject.Inject
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val component =
-            DaggerUserRegistrationComponent.factory().create(DaggerApp.mInstance.appComponent, 3)
+            DaggerApp.mInstance.appComponent.getUserRegistrationComponentFactory().create(3)
         component.inject(this)
 
         userRegistrationService.registerUser("my_test@example.com", "11111")
