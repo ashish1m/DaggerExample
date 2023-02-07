@@ -1,16 +1,17 @@
 package com.example.daggerexample.repo
 
 import android.util.Log
+import com.example.daggerexample.scope.ActivityScope
 import com.example.daggerexample.services.AnalyticsService
 import com.example.daggerexample.util.TAG
 import javax.inject.Inject
-import javax.inject.Named
 
 interface UserRepository {
     fun saveUser(email: String, password: String)
 }
 
-class SQLRepository @Inject constructor(@Named("mixpanel") private val analyticsService: AnalyticsService) :
+@ActivityScope
+class SQLRepository @Inject constructor(private val analyticsService: AnalyticsService) :
     UserRepository {
 
     override fun saveUser(email: String, password: String) {
@@ -19,7 +20,7 @@ class SQLRepository @Inject constructor(@Named("mixpanel") private val analytics
     }
 }
 
-class FirebaseRepository(@Named("firebase") private val analyticsService: AnalyticsService) :
+class FirebaseRepository(private val analyticsService: AnalyticsService) :
     UserRepository {
     override fun saveUser(email: String, password: String) {
         Log.d(TAG, "saveUser: User saved in Firebase")

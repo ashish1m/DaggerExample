@@ -2,6 +2,7 @@ package com.example.daggerexample
 
 import android.app.Application
 import com.example.daggerexample.component.AppComponent
+import com.example.daggerexample.component.DaggerAppComponent
 
 class DaggerApp : Application() {
 
@@ -16,5 +17,6 @@ class DaggerApp : Application() {
         super.onCreate()
 
         mInstance = this
+        appComponent = DaggerAppComponent.create()
     }
 }
