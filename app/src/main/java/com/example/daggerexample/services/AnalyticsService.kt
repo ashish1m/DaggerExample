@@ -1,6 +1,7 @@
-package com.example.daggerexample
+package com.example.daggerexample.services
 
 import android.util.Log
+import com.example.daggerexample.util.TAG
 import javax.inject.Inject
 
 interface AnalyticsService {

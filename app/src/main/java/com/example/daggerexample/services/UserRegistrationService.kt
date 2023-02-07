@@ -1,5 +1,7 @@
-package com.example.daggerexample
+package com.example.daggerexample.services
 
+import com.example.daggerexample.repo.UserRepository
+import com.example.daggerexample.qualifier.MessageQualifier
 import javax.inject.Inject
 
 class UserRegistrationService @Inject constructor(

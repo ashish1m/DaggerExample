@@ -1,4 +1,4 @@
-package com.example.daggerexample
+package com.example.daggerexample.qualifier
 
 import javax.inject.Qualifier
 

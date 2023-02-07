@@ -1,5 +1,8 @@
-package com.example.daggerexample
+package com.example.daggerexample.module
 
+import com.example.daggerexample.services.AnalyticsService
+import com.example.daggerexample.services.FirebaseAnalytics
+import com.example.daggerexample.services.MixpanelAnalytics
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

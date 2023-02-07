@@ -1,14 +1,16 @@
-package com.example.daggerexample
+package com.example.daggerexample.module
 
+import com.example.daggerexample.qualifier.MessageQualifier
+import com.example.daggerexample.services.EmailService
+import com.example.daggerexample.services.MessageService
+import com.example.daggerexample.services.NotificationService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 class NotificationServiceModule {
 
-    @Singleton
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount: Int): NotificationService {

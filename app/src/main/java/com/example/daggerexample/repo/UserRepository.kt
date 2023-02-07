@@ -1,15 +1,15 @@
-package com.example.daggerexample
+package com.example.daggerexample.repo
 
 import android.util.Log
+import com.example.daggerexample.services.AnalyticsService
+import com.example.daggerexample.util.TAG
 import javax.inject.Inject
 import javax.inject.Named
-import javax.inject.Singleton
 
 interface UserRepository {
     fun saveUser(email: String, password: String)
 }
 
-@Singleton
 class SQLRepository @Inject constructor(@Named("mixpanel") private val analyticsService: AnalyticsService) :
     UserRepository {
 
